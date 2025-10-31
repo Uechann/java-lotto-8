@@ -45,4 +45,13 @@ public class InputValidatorTest {
         assertThatThrownBy(() -> InputValidator.validateWinningNumbers(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    // 보너스 번호 실패 테스트
+    @DisplayName("보너스 번호 입력시 실패 테스트 케이스를 검증합니다.")
+    @ParameterizedTest
+    @ValueSource(strings = {"ㅁ", "1,", "0", "46"})
+    void 보너스_번호_실패_테스트(String input) {
+        assertThatThrownBy(() -> InputValidator.validateBonusNumber(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
