@@ -15,9 +15,18 @@ public class InputValidator {
         return true;
     }
 
+    // 당첨 번호들 검증 메서드
     public static boolean validateWinningNumbers(String input) {
         validateNullOrBlank(input);
         validateNumbersPattern(input);
+
+        return true;
+    }
+
+    // 보너스 번호 검증 메서드
+    public static boolean validateBonusNumber(String input) {
+        validateNullOrBlank(input);
+        validateIsNotAllNumber(input);
 
         return true;
     }
