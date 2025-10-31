@@ -1,29 +1,41 @@
 package lotto.global.util;
 
+import lotto.global.constant.ErrorMessage;
+
 public class InputValidator {
 
+    // 가격 검증 메서드
     public static boolean validateInputPrice(String input) {
 
-        // null값, 빈값, 공백시 오류 처리
-        if (input == null || input.isBlank()) {
-            throw new IllegalArgumentException();
-        }
-
-        // 0이라면 오류 처리
-        if (input.equals("0")) {
-            throw new IllegalArgumentException();
-        }
-
-        // 음수라면 오류 처리
-        if (input.matches("^-[0-9]$")) {
-            throw new IllegalArgumentException("음수는 안됩니다");
-        }
-
-        // 패턴으로 모두 숫자가 아니면 오류 처리
-        if (!input.matches("^[0-9]*$")) {
-            throw new IllegalArgumentException();
-        }
+        validateNullOrBlank(input);
+        validateIsZero(input);
+        validateIsNegativeNumber(input);
+        validateIsNotAllNumber(input);
 
         return true;
+    }
+
+    private static void validateIsNotAllNumber(String input) {
+        if (!input.matches("^[0-9]*$")) {
+            throw new IllegalArgumentException(ErrorMessage.CHARACTER_IS_NOT_ALLOWED.getMessage());
+        }
+    }
+
+    private static void validateIsNegativeNumber(String input) {
+        if (input.matches("^-[0-9]$")) {
+            throw new IllegalArgumentException(ErrorMessage.NEGATIVE_NUMBER_IS_NOT_ALLOWED.getMessage());
+        }
+    }
+
+    private static void validateIsZero(String input) {
+        if (input.equals("0")) {
+            throw new IllegalArgumentException(ErrorMessage.ZERO_IS_NOT_ALLOWED.getMessage());
+        }
+    }
+
+    private static void validateNullOrBlank(String input) {
+        if (input == null || input.isBlank()) {
+            throw new IllegalArgumentException(ErrorMessage.BLANK_IS_NOT_ALLOWED.getMessage());
+        }
     }
 }
