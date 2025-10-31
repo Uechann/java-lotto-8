@@ -26,4 +26,23 @@ public class InputValidatorTest {
         assertThatThrownBy(() -> InputValidator.validateInputPrice(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    // 당첨 번호 성공 테스트
+    @DisplayName("당첨 번호 입력 시 성공 테스트 케이스를 검증합니다.")
+    @ParameterizedTest
+    @ValueSource(strings = {"1,2,3,4,5,6", "2,3,4,5,6,7"})
+    void 당첨_번호_입력_성공_테스트(String input) {
+        boolean isValid = InputValidator.validateWinningNumbers(input);
+        assertThat(isValid).isTrue();
+    }
+
+
+    // 당첨 번호 실패 테스트
+    @DisplayName("당첨 번호 입력 시 실패 테스트 케이스를 검증합니다.")
+    @ParameterizedTest
+    @ValueSource(strings = {"", " ", "ㅁ,ㅁ,ㅁ,ㅁ,ㅁ,ㅁ", "0,1,2,3,4,5", ",1,2,3", "1,2,3,", ",1,2,3,"})
+    void 당첨_번호_실패_테스트(String input) {
+        assertThatThrownBy(() -> InputValidator.validateWinningNumbers(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
