@@ -8,15 +8,16 @@ public class InputValidator {
     public static boolean validateInputPrice(String input) {
 
         validateNullOrBlank(input);
+        validateIsNotAllNumber(input);
         validateIsZero(input);
         validateIsNegativeNumber(input);
-        validateIsNotAllNumber(input);
 
         return true;
     }
 
     // 당첨 번호들 검증 메서드
     public static boolean validateWinningNumbers(String input) {
+
         validateNullOrBlank(input);
         validateNumbersPattern(input);
 
@@ -27,6 +28,7 @@ public class InputValidator {
     public static boolean validateBonusNumber(String input) {
         validateNullOrBlank(input);
         validateIsNotAllNumber(input);
+        validateNumberRange(Integer.parseInt(input));
 
         return true;
     }
@@ -59,5 +61,13 @@ public class InputValidator {
         if (input == null || input.isBlank()) {
             throw new IllegalArgumentException(ErrorMessage.BLANK_IS_NOT_ALLOWED.getMessage());
         }
+    }
+
+    public static boolean validateNumberRange(int number) {
+        if (number < 1 || number > 45) {
+            throw new IllegalArgumentException(ErrorMessage.IS_NOT_ALLOWED_NUMBER_RANGE.getMessage());
+        }
+
+        return true;
     }
 }
