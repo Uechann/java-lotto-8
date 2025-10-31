@@ -17,12 +17,15 @@ public class InputValidator {
 
     public static boolean validateWinningNumbers(String input) {
         validateNullOrBlank(input);
-
-        if (!input.matches("^[1-9]+(?:,[1-9])*$")) {
-            throw new IllegalArgumentException();
-        }
+        validateNumbersPattern(input);
 
         return true;
+    }
+
+    private static void validateNumbersPattern(String input) {
+        if (!input.matches("^[1-9]+(?:,[1-9])*$")) {
+            throw new IllegalArgumentException(ErrorMessage.IS_NOT_ALLOWED_PATTERN.getMessage());
+        }
     }
 
     private static void validateIsNotAllNumber(String input) {
