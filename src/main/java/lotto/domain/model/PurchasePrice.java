@@ -1,11 +1,9 @@
 package lotto.domain.model;
 
-public class PurchasePrice {
-    private int value;
-    
-    public PurchasePrice(int value) {
+public record PurchasePrice(int value) {
+
+    public PurchasePrice {
         validate(value);
-        this.value = value;
     }
 
     private void validate(int value) {
