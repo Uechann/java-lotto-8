@@ -15,6 +15,16 @@ public class InputValidator {
         return true;
     }
 
+    public static boolean validateWinningNumbers(String input) {
+        validateNullOrBlank(input);
+
+        if (!input.matches("^[1-9]+(?:,[1-9])*$")) {
+            throw new IllegalArgumentException();
+        }
+
+        return true;
+    }
+
     private static void validateIsNotAllNumber(String input) {
         if (!input.matches("^[0-9]*$")) {
             throw new IllegalArgumentException(ErrorMessage.CHARACTER_IS_NOT_ALLOWED.getMessage());
