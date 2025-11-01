@@ -1,11 +1,13 @@
 package lotto.domain.model;
 
+import lotto.domain.result.Rank;
 import lotto.global.constant.ErrorMessage;
 
 import java.util.List;
 
 public class Lotto {
     private final List<Integer> numbers;
+    private Rank rank;
 
     public Lotto(List<Integer> numbers) {
         validate(numbers);
@@ -14,6 +16,29 @@ public class Lotto {
 
     public List<Integer> getNumbers() {
         return numbers;
+    }
+
+    public Rank getRank() {
+        return rank;
+    }
+
+    // 당첨 로또를 통해서 매칭 카운트와 보너스 매치를 계산하고 Rank를 저장후 반환 메서드
+    public Rank judgeMatchingCountAndBonusHit(WinningLotto winningLotto) {
+        int matchCount = getMatchCount(winningLotto.getLotto()); //-> 여기가 문제
+        boolean bonusMatch = getBonusMatch(winningLotto.getBonusNumber());
+        this.rank = Rank.judgeRank(matchCount, bonusMatch);
+
+        return rank;
+    }
+
+    private boolean getBonusMatch(int bonusNumber) {
+        return numbers.contains(bonusNumber);
+    }
+
+    private int getMatchCount(List<Integer> winningLottoNumbers) {
+        return (int) numbers.stream()
+                .filter(winningLottoNumbers::contains)
+                .count();
     }
 
     private void validate(List<Integer> numbers) {
