@@ -22,7 +22,7 @@ public class WinningLottoTest {
         WinningLotto winningLotto = new WinningLotto(lotto, bonusNumber);
 
         // Then
-        assertThat(winningLotto.getBonuseNumber()).isEqualsTo(7);
+        assertThat(winningLotto.getBonusNumber()).isEqualTo(7);
     }
 
     @DisplayName("당첨 로또에 보너스 번호를 추가할때 중복으로 인한 에러 테스트입니다.")
