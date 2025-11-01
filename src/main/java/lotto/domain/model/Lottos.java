@@ -19,8 +19,10 @@ public class Lottos {
         lottos.add(lotto);
     }
 
-    public List<Lotto> getLottos() {
-        return lottos;
+    public List<List<Integer>> getLottoNumbers() {
+        return lottos.stream()
+                .map(Lotto::getNumbers)
+                .toList();
     }
 
     // 당첨 로또를 통해서 Rank 저장후 결과 반환 메서드
@@ -35,12 +37,4 @@ public class Lottos {
 
         return new RankResult(rankResult);
     }
-
-    // 로또 숫자들 리스트 반환 메서드
-//    public List<List<Integer>> getLottoNumbers() {
-//        List<List<Integer>> lottoNumbers = new ArrayList<>();
-//        lottos.forEach(lotto -> {
-//
-//        })
-//    }
 }

@@ -38,6 +38,6 @@ public class LottoFactoryTest {
         PurchasePrice price = new PurchasePrice(8000);
 
         Lottos lottos = lottoFactory.createLottos(price);
-        assertThat(lottos.getLottos()).hasSize(8);
+        assertThat(lottos.getLottoNumbers()).hasSize(8);
     }
 }
