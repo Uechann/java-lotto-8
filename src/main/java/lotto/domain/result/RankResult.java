@@ -18,4 +18,16 @@ public record RankResult(Map<Rank, Integer> rankStatistics) {
                 })
                 .collect(Collectors.joining());
     }
+
+    // 총 당첨금 조회
+    public int getTotalPrize() {
+        int total = 0;
+        for (Map.Entry<Rank, Integer> entry : rankStatistics.entrySet()) {
+            Long prize = entry.getKey().getPrize();
+            int value = entry.getValue();
+
+            total += (prize * value);
+        }
+        return total;
+    }
 }

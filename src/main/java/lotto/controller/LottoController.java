@@ -49,5 +49,8 @@ public class LottoController {
 
         // 당첨 통계 출력
         outputView.printLottosStatistics(rankResult);
+        // 수익률 출력
+        double yield = YieldCalculator.calculate(price.getValue(), rankResult.getTotalPrize());
+        outputView.printYield(yield);
     }
 }
