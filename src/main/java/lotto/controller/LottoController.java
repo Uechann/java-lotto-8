@@ -4,9 +4,7 @@ import lotto.domain.model.*;
 import lotto.domain.result.RankResult;
 import lotto.domain.service.LottoFactory;
 import lotto.domain.service.LottoService;
-import lotto.global.util.InputValidator;
-import lotto.global.util.NumberParser;
-import lotto.global.util.Parser;
+import lotto.global.util.*;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
@@ -26,8 +24,7 @@ public class LottoController {
 
     public void run() {
         // 구입금액 입력
-        String purchasePrice = inputView.InputPurchasePrice();
-        InputValidator.validateInputPrice(purchasePrice);
+        String purchasePrice = (String) Retry.askUntilValid(outputView, inputView::InputPurchasePrice, InputValidator::validateInputPrice);
         PurchasePrice price = new PurchasePrice(Integer.parseInt(purchasePrice));
 
         // 로또 구매
@@ -37,12 +34,10 @@ public class LottoController {
         outputView.printPurchaseLottos(lottos.getLottoNumbers());
 
         // 당첨 번호 입력
-        String winningNumbers = inputView.InputWinningNumbers();
-        InputValidator.validateWinningNumbers(winningNumbers);
+        String winningNumbers = (String) Retry.askUntilValid(outputView, inputView::InputWinningNumbers, InputValidator::validateWinningNumbers);
 
         // 보너스 번호 입력
-        String bonusNumber = inputView.InputBonusNumber();
-        InputValidator.validateBonusNumber(bonusNumber);
+        String bonusNumber = (String) Retry.askUntilValid(outputView, inputView::InputBonusNumber, InputValidator::validateBonusNumber);
         WinningLotto winningLotto = LottoFactory.createWinningLotto(parser.parse(winningNumbers), Integer.parseInt(bonusNumber));
 
         RankResult rankResult = lottoService.judgeLottosRanks(lottos, winningLotto);
