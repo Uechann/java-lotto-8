@@ -18,6 +18,10 @@ public class WinningLotto {
         return bonusNumber.getValue();
     }
 
+    public List<Integer> getLotto() {
+        return lotto.getNumbers();
+    }
+
     // 중복 검사 메서드
     private void validate(Lotto lotto, BonusNumber bonusNumber) {
         List<Integer> numbers = lotto.getNumbers();

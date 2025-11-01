@@ -1,7 +1,9 @@
 package lotto.domain.service;
 
+import lotto.domain.model.Lottos;
 import lotto.domain.model.PurchasePrice;
 import lotto.domain.model.WinningLotto;
+import lotto.global.util.RandomUniqueNumberGenerator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -10,6 +12,8 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class LottoFactoryTest {
+
+    LottoFactory lottoFactory = new LottoFactory(new RandomUniqueNumberGenerator());
 
     // 당첨 번호 생성기로 여기서 해야할까 ?
     @Test
@@ -33,7 +37,7 @@ public class LottoFactoryTest {
     void 구매_가격만큼_로또를_생성하는_테스트() {
         PurchasePrice price = new PurchasePrice(8000);
 
-        Lottos lottos = LottoFactory.createLottos(price);
+        Lottos lottos = lottoFactory.createLottos(price);
         assertThat(lottos.getLottos()).hasSize(8);
     }
 }

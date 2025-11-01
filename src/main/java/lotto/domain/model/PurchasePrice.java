@@ -8,6 +8,10 @@ public record PurchasePrice(int value) {
         validate(value);
     }
 
+    public int getLottoCount() {
+        return value / 1000;
+    }
+
     private void validate(int value) {
         if (value % 1000 != 0) {
             throw new IllegalArgumentException(ErrorMessage.IS_NOT_ALLOWED_UNIT.getMessage());
