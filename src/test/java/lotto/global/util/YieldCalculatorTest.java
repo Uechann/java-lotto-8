@@ -11,13 +11,13 @@ public class YieldCalculatorTest {
     @Test
     void 수익률_계산기_테스트() {
         // Given
-        int purchasePrice = 8000;
+        int purchasePrice = 9000;
         int winningPrice = 5000;
 
         // When
         double yield = YieldCalculator.calculate(purchasePrice, winningPrice);
 
         // Then
-        assertThat(yield).isEqualTo(62.5);
+        assertThat(yield).isEqualTo(55.56);
     }
 }
