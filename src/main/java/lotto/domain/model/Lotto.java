@@ -7,7 +7,6 @@ import java.util.List;
 
 public class Lotto {
     private final List<Integer> numbers;
-    private Rank rank;
 
     public Lotto(List<Integer> numbers) {
         validate(numbers);
@@ -22,9 +21,7 @@ public class Lotto {
     public Rank judgeMatchingCountAndBonusHit(WinningLotto winningLotto) {
         int matchCount = getMatchCount(winningLotto.getLotto());
         boolean bonusMatch = getBonusMatch(winningLotto.getBonusNumber());
-        this.rank = Rank.judgeRank(matchCount, bonusMatch);
-
-        return rank;
+        return Rank.judgeRank(matchCount, bonusMatch);
     }
 
     private boolean getBonusMatch(int bonusNumber) {
