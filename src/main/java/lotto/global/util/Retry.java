@@ -8,7 +8,6 @@ import java.util.function.Supplier;
 public final class Retry {
 
     private Retry() {
-
     }
 
     public static <T> String askUntilValid(OutputView out, Supplier<T> supplier, Function<String, T> validator) {

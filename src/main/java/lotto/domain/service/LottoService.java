@@ -11,7 +11,7 @@ public class LottoService {
     private final LottoFactory lottoFactory;
     private final Parser<Integer> parser;
 
-    public LottoService(LottoFactory lottoFactory, Parser parser) {
+    public LottoService(LottoFactory lottoFactory, Parser<Integer> parser) {
         this.lottoFactory = lottoFactory;
         this.parser = parser;
     }
@@ -30,6 +30,4 @@ public class LottoService {
     public RankResult judgeLottosRanks(Lottos lottos, WinningLotto winningLotto) {
         return lottos.judgeLottosWithWinningLotto(winningLotto);
     }
-
-    // 등수에 따른 가격 계산 후 수익률 발행 -> Lottos 클래스에서 수익률 발행
 }

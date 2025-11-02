@@ -4,20 +4,18 @@ import java.util.Arrays;
 import java.util.function.BiPredicate;
 
 public enum Rank {
-    FIRST(1, 2000000000L, 6,(matchCount, b) -> matchCount == 6),
-    SECOND(2, 30000000L, 5, (matchCount, b) -> matchCount == 5 && b),
-    THIRD(3, 1500000L, 5, (matchCount, b) -> matchCount == 5 && !b),
-    FOURTH(4, 50000L, 4, (matchCount, b) -> matchCount == 4),
-    FIFTH(5, 5000L, 3, (matchCount, b) -> matchCount == 3),
-    NONE(6, 0L, 0, (matchCount, b) -> false);
+    FIRST(2000000000L, 6,(matchCount, b) -> matchCount == 6),
+    SECOND(30000000L, 5, (matchCount, b) -> matchCount == 5 && b),
+    THIRD(1500000L, 5, (matchCount, b) -> matchCount == 5 && !b),
+    FOURTH(50000L, 4, (matchCount, b) -> matchCount == 4),
+    FIFTH(5000L, 3, (matchCount, b) -> matchCount == 3),
+    NONE(0L, 0, (matchCount, b) -> false);
 
-    private final int rank;
     private final Long prize;
     private final int matchCount;
     private final BiPredicate<Integer, Boolean> condition;
 
-    Rank(int rank, Long prize, int matchCount, BiPredicate<Integer, Boolean> condition) {
-        this.rank = rank;
+    Rank(Long prize, int matchCount, BiPredicate<Integer, Boolean> condition) {
         this.prize = prize;
         this.matchCount = matchCount;
         this.condition = condition;
