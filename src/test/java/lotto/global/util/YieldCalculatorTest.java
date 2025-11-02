@@ -17,7 +17,7 @@ public class YieldCalculatorTest {
         int winningPrice = 5000;
 
         // When
-        BigDecimal yield = YieldCalculator.calculate(purchasePrice, winningPrice);
+        double yield = YieldCalculator.calculate(purchasePrice, winningPrice);
 
         // Then
         assertThat(yield).isEqualTo(55.56);

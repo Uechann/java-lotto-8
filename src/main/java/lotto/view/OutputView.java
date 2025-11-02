@@ -29,7 +29,7 @@ public class OutputView {
     }
 
     // 수익률 출력
-    public void printYield(BigDecimal yield) {
+    public void printYield(double yield) {
         System.out.println("총 수익률은 " + yield + "%입니다.");
     }
 
