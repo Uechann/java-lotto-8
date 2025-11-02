@@ -18,10 +18,6 @@ public class Lotto {
         return List.copyOf(numbers);
     }
 
-    public Rank getRank() {
-        return rank;
-    }
-
     // 당첨 로또를 통해서 매칭 카운트와 보너스 매치를 계산하고 Rank를 저장후 반환 메서드
     public Rank judgeMatchingCountAndBonusHit(WinningLotto winningLotto) {
         int matchCount = getMatchCount(winningLotto.getLotto()); //-> 여기가 문제
