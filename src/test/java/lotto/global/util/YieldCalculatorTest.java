@@ -3,6 +3,8 @@ package lotto.global.util;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class YieldCalculatorTest {
@@ -15,7 +17,7 @@ public class YieldCalculatorTest {
         int winningPrice = 5000;
 
         // When
-        double yield = YieldCalculator.calculate(purchasePrice, winningPrice);
+        BigDecimal yield = YieldCalculator.calculate(purchasePrice, winningPrice);
 
         // Then
         assertThat(yield).isEqualTo(55.56);

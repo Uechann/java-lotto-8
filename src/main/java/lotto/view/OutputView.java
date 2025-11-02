@@ -2,6 +2,7 @@ package lotto.view;
 
 import lotto.domain.result.RankResult;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class OutputView {
@@ -28,7 +29,7 @@ public class OutputView {
     }
 
     // 수익률 출력
-    public void printYield(double yield) {
+    public void printYield(BigDecimal yield) {
         System.out.println("총 수익률은 " + yield + "%입니다.");
     }
 
