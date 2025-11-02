@@ -7,6 +7,7 @@ import lotto.domain.model.Lottos;
 import lotto.domain.model.WinningLotto;
 import lotto.domain.result.Rank;
 import lotto.domain.result.RankResult;
+import lotto.global.util.NumberParser;
 import lotto.global.util.RandomUniqueNumberGenerator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -18,7 +19,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class LottoServiceTest {
 
-    private LottoService lottoService = new LottoService(new LottoFactory(new RandomUniqueNumberGenerator()));
+    private LottoService lottoService = new LottoService(
+            new LottoFactory(new RandomUniqueNumberGenerator()),
+            new NumberParser());
 
     @DisplayName("당첨 로또를 통해서 로또들의 당첨 등수를 판별하는 메서드 테스트")
     @Test

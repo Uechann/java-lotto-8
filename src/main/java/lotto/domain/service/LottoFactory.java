@@ -14,7 +14,7 @@ public class LottoFactory {
     }
 
     // 당첨 번호 생성기
-    public static WinningLotto createWinningLotto(List<Integer> winningnumbers, int bonusNumber) {
+    public WinningLotto createWinningLotto(List<Integer> winningnumbers, int bonusNumber) {
         Lotto lotto = new Lotto(winningnumbers);
         BonusNumber bonusNumberBonus = new BonusNumber(bonusNumber);
         return new WinningLotto(lotto, bonusNumberBonus);

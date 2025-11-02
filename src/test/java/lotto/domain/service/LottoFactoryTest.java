@@ -23,7 +23,7 @@ public class LottoFactoryTest {
         int bonusNumber = 7;
 
         // When
-        WinningLotto winningLotto = LottoFactory.createWinningLotto(number, bonusNumber);
+        WinningLotto winningLotto = lottoFactory.createWinningLotto(number, bonusNumber);
 
         // Then
         assertThat(winningLotto.getLotto()).hasSize(6);
