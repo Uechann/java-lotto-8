@@ -12,9 +12,7 @@ public record RankResult(Map<Rank, Integer> rankStatistics) {
                 .filter(entry -> entry.getKey() != Rank.NONE)
                 .sorted(Map.Entry.comparingByKey(Comparator.reverseOrder()))
                 .map(entry -> {
-                    Rank rank = entry.getKey();
-                    Integer value = entry.getValue();
-                    return rank.toString() + " - " + value + "개\n";
+                    return entry.getKey().toString() + " - " + entry.getValue() + "개\n";
                 })
                 .collect(Collectors.joining());
     }
@@ -26,7 +24,7 @@ public record RankResult(Map<Rank, Integer> rankStatistics) {
             Long prize = entry.getKey().getPrize();
             int value = entry.getValue();
 
-            total += (prize * value);
+            total += (int) (prize * value);
         }
         return total;
     }

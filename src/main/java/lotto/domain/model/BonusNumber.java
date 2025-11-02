@@ -2,7 +2,7 @@ package lotto.domain.model;
 
 
 public class BonusNumber {
-    private int value;
+    private final int value;
 
     public BonusNumber(int number) {
         this.value = number;
