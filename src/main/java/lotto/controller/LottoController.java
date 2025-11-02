@@ -24,7 +24,7 @@ public class LottoController {
 
     public void run() {
         // 구입금액 입력
-        String purchasePrice = (String) Retry.askUntilValid(outputView, inputView::InputPurchasePrice, InputValidator::validateInputPrice);
+        String purchasePrice = Retry.askUntilValid(outputView, inputView::InputPurchasePrice, InputValidator::validateInputPrice);
         PurchasePrice price = new PurchasePrice(Integer.parseInt(purchasePrice));
 
         // 로또 구매
@@ -34,16 +34,18 @@ public class LottoController {
         outputView.printPurchaseLottos(lottos.getLottoNumbers());
 
         // 당첨 번호 입력
-        String winningNumbers = (String) Retry.askUntilValid(outputView, inputView::InputWinningNumbers, InputValidator::validateWinningNumbers);
+        String winningNumbers = Retry.askUntilValid(outputView, inputView::InputWinningNumbers, InputValidator::validateWinningNumbers);
 
         // 보너스 번호 입력
-        String bonusNumber = (String) Retry.askUntilValid(outputView, inputView::InputBonusNumber, InputValidator::validateBonusNumber);
+        String bonusNumber = Retry.askUntilValid(outputView, inputView::InputBonusNumber, InputValidator::validateBonusNumber);
         WinningLotto winningLotto = LottoFactory.createWinningLotto(parser.parse(winningNumbers), Integer.parseInt(bonusNumber));
 
+        // 당첨 판단
         RankResult rankResult = lottoService.judgeLottosRanks(lottos, winningLotto);
 
         // 당첨 통계 출력
         outputView.printLottosStatistics(rankResult);
+
         // 수익률 출력
         double yield = YieldCalculator.calculate(price.getValue(), rankResult.getTotalPrize());
         outputView.printYield(yield);
