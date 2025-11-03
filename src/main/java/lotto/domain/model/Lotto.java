@@ -23,16 +23,6 @@ public class Lotto {
         return gameRule.judge(winningLotto, this);
     }
 
-    private boolean getBonusMatch(int bonusNumber) {
-        return numbers.contains(bonusNumber);
-    }
-
-    private int getMatchCount(List<Integer> winningLottoNumbers) {
-        return (int) numbers.stream()
-                .filter(winningLottoNumbers::contains)
-                .count();
-    }
-
     private void validate(List<Integer> numbers) {
         validateNumberSize(numbers);
         numbers.forEach(this::isNumberInRange);
