@@ -1,4 +1,4 @@
-package lotto.domain.rule;
+package lotto.domain.rule.bonus;
 
 import java.util.List;
 

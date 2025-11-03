@@ -4,7 +4,7 @@ import lotto.domain.model.Lottos;
 import lotto.domain.model.PurchasePrice;
 import lotto.domain.model.WinningLotto;
 import lotto.domain.rule.GameRule;
-import lotto.domain.rule.RankResult;
+import lotto.domain.rule.result.RankResult;
 import lotto.global.util.Parser;
 
 public class LottoService {

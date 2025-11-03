@@ -2,7 +2,7 @@ package lotto.domain.model;
 
 import lotto.domain.rule.GameRule;
 import lotto.domain.rule.Rank;
-import lotto.domain.rule.RankResult;
+import lotto.domain.rule.result.RankResult;
 
 import java.util.*;
 

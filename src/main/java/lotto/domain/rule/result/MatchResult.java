@@ -1,4 +1,4 @@
-package lotto.domain.rule;
+package lotto.domain.rule.result;
 
 public record MatchResult(int matchCount, boolean bonusHit) {
 

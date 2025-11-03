@@ -2,6 +2,9 @@ package lotto.domain.rule;
 
 import lotto.domain.model.Lotto;
 import lotto.domain.model.WinningLotto;
+import lotto.domain.rule.bonus.BonusCriteria;
+import lotto.domain.rule.counter.MatchCounter;
+import lotto.domain.rule.result.MatchResult;
 
 public class LottoGameRule implements GameRule {
 

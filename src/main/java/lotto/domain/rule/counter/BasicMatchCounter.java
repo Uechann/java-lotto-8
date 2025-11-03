@@ -1,4 +1,4 @@
-package lotto.domain.rule;
+package lotto.domain.rule.counter;
 
 import java.util.List;
 

@@ -1,9 +1,9 @@
 package lotto.domain.service;
 
 import lotto.domain.rule.*;
-import lotto.domain.rule.BasicMatchCounter;
+import lotto.domain.rule.counter.BasicMatchCounter;
 import lotto.domain.rule.Rank;
-import lotto.domain.rule.SingleBonusCriteria;
+import lotto.domain.rule.bonus.SingleBonusCriteria;
 
 import java.util.List;
 

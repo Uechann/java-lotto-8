@@ -1,5 +1,7 @@
 package lotto.domain.rule;
 
+import lotto.domain.rule.result.MatchResult;
+
 import java.util.List;
 
 public class LottoRankingCriteria implements RankingCriteria {

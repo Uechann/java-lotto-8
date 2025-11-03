@@ -4,7 +4,7 @@ import lotto.domain.rule.LottoRankingCriteria;
 import lotto.domain.rule.RankingCriteria;
 import lotto.domain.rule.Rank;
 import lotto.domain.rule.RuleTable;
-import lotto.domain.rule.MatchResult;
+import lotto.domain.rule.result.MatchResult;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;

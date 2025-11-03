@@ -5,7 +5,7 @@ import lotto.domain.model.Lotto;
 import lotto.domain.model.Lottos;
 import lotto.domain.model.WinningLotto;
 import lotto.domain.rule.Rank;
-import lotto.domain.rule.RankResult;
+import lotto.domain.rule.result.RankResult;
 import lotto.global.util.NumberParser;
 import lotto.global.util.RandomUniqueNumberGenerator;
 import org.junit.jupiter.api.DisplayName;

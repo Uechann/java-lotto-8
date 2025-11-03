@@ -1,6 +1,6 @@
 package lotto.view;
 
-import lotto.domain.rule.RankResult;
+import lotto.domain.rule.result.RankResult;
 
 import java.util.List;
 
