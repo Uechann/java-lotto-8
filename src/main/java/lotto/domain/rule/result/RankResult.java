@@ -23,10 +23,10 @@ public record RankResult(Map<Rank, Integer> rankStatistics) {
     public int getTotalPrize() {
         int total = 0;
         for (Map.Entry<Rank, Integer> entry : rankStatistics.entrySet()) {
-            Long prize = entry.getKey().getPrize();
+            int prize = entry.getKey().getPrize();
             int value = entry.getValue();
 
-            total += (int) (prize * value);
+            total += (prize * value);
         }
         return total;
     }

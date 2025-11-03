@@ -2,6 +2,8 @@ package lotto.domain.model;
 
 import lotto.global.constant.ErrorMessage;
 
+import static lotto.global.constant.LottoConstant.LOTTO_UNIT;
+
 public record PurchasePrice(int value) {
 
     public PurchasePrice {
@@ -9,7 +11,7 @@ public record PurchasePrice(int value) {
     }
 
     public int getLottoCount() {
-        return value / 1000;
+        return value / LOTTO_UNIT;
     }
 
     public int getValue() {
@@ -17,7 +19,7 @@ public record PurchasePrice(int value) {
     }
 
     private void validate(int value) {
-        if (value % 1000 != 0) {
+        if (value % LOTTO_UNIT != 0) {
             throw new IllegalArgumentException(ErrorMessage.IS_NOT_ALLOWED_UNIT.getMessage());
         }
     }

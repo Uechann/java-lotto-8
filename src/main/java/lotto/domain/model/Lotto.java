@@ -6,6 +6,8 @@ import lotto.global.constant.ErrorMessage;
 
 import java.util.List;
 
+import static lotto.global.constant.LottoConstant.*;
+
 public class Lotto {
     private final List<Integer> numbers;
 
@@ -42,13 +44,13 @@ public class Lotto {
     }
 
     private static void validateNumberSize(List<Integer> numbers) {
-        if (numbers.size() != 6) {
+        if (numbers.size() != LOTTO_NUMBER_SIZE) {
             throw new IllegalArgumentException(ErrorMessage.IS_NOT_ALLOWED_NUMBER_SIZE.getMessage());
         }
     }
 
     private void isNumberInRange(int number) {
-        if (number < 1 || number > 45) {
+        if (number < LOTTO_NUMBER_MIN || number > LOTTO_NUMBER_MAX) {
             throw new IllegalArgumentException(ErrorMessage.IS_NOT_ALLOWED_NUMBER_RANGE.getMessage());
         }
     }
