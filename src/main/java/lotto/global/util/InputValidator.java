@@ -34,7 +34,7 @@ public class InputValidator {
     }
 
     private static void validateNumbersPattern(String input) {
-        if (!input.matches("^[1-9]{1,2}+(?:,[1-9]{1,2})*$")) {
+        if (!input.matches("^[1-9][0-9]?+(?:,[1-9][0-9]?)*$")) {
             throw new IllegalArgumentException(ErrorMessage.IS_NOT_ALLOWED_PATTERN.getMessage());
         }
     }
