@@ -23,7 +23,7 @@ public class Lottos {
                 .toList();
     }
 
-    // 당첨 로또를 통해서 Rank 저장후 결과 반환 메서드
+    // 각 로또 별로 당첨 결과 판별 후 랭크 결과 반환 메서드
     public RankResult judgeLottosWithWinningLotto(WinningLotto winningLotto, GameRule gameRule) {
         Map<Rank, Integer> rankResult = initializeRankMap();
 
