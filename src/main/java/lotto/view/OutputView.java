@@ -1,8 +1,7 @@
 package lotto.view;
 
-import lotto.domain.result.RankResult;
+import lotto.domain.rule.RankResult;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 public class OutputView {

@@ -1,8 +1,7 @@
 package lotto.controller;
 
 import lotto.domain.model.*;
-import lotto.domain.result.RankResult;
-import lotto.domain.service.LottoFactory;
+import lotto.domain.rule.RankResult;
 import lotto.domain.service.LottoService;
 import lotto.global.util.*;
 import lotto.view.InputView;

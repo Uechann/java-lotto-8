@@ -1,19 +1,17 @@
 package lotto.domain.service;
 
-import jdk.swing.interop.SwingInterOpUtils;
 import lotto.domain.model.BonusNumber;
 import lotto.domain.model.Lotto;
 import lotto.domain.model.Lottos;
 import lotto.domain.model.WinningLotto;
-import lotto.domain.result.Rank;
-import lotto.domain.result.RankResult;
+import lotto.domain.rule.Rank;
+import lotto.domain.rule.RankResult;
 import lotto.global.util.NumberParser;
 import lotto.global.util.RandomUniqueNumberGenerator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
-import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

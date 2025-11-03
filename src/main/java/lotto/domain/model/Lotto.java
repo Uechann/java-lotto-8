@@ -1,6 +1,7 @@
 package lotto.domain.model;
 
-import lotto.domain.result.Rank;
+import lotto.domain.rule.GameRule;
+import lotto.domain.rule.Rank;
 import lotto.global.constant.ErrorMessage;
 
 import java.util.List;
@@ -18,10 +19,10 @@ public class Lotto {
     }
 
     // 당첨 로또를 통해서 매칭 카운트와 보너스 매치를 계산하고 Rank를 저장후 반환 메서드
-    public Rank judgeMatchingCountAndBonusHit(WinningLotto winningLotto) {
-        int matchCount = getMatchCount(winningLotto.getLotto());
-        boolean bonusMatch = getBonusMatch(winningLotto.getBonusNumber());
-        return Rank.judgeRank(matchCount, bonusMatch);
+    public Rank judgeMatchingCountAndBonusHit(WinningLotto winningLotto, GameRule gameRule) {
+//        int matchCount = getMatchCount(winningLotto.getLotto());
+//        boolean bonusMatch = getBonusMatch(winningLotto.getBonusNumber());
+        return gameRule.judge(winningLotto, this);
     }
 
     private boolean getBonusMatch(int bonusNumber) {

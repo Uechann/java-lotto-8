@@ -1,4 +1,4 @@
-package lotto.domain.result;
+package lotto.domain.rule;
 
 import java.util.Comparator;
 import java.util.Map;

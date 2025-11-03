@@ -1,7 +1,8 @@
 package lotto.domain.model;
 
-import lotto.domain.result.Rank;
-import lotto.domain.result.RankResult;
+import lotto.domain.rule.GameRule;
+import lotto.domain.rule.Rank;
+import lotto.domain.rule.RankResult;
 
 import java.util.*;
 
@@ -23,11 +24,11 @@ public class Lottos {
     }
 
     // 당첨 로또를 통해서 Rank 저장후 결과 반환 메서드
-    public RankResult judgeLottosWithWinningLotto(WinningLotto winningLotto) {
+    public RankResult judgeLottosWithWinningLotto(WinningLotto winningLotto, GameRule gameRule) {
         Map<Rank, Integer> rankResult = initializeRankMap();
 
         lottos.forEach(lotto -> {
-            Rank rank = lotto.judgeMatchingCountAndBonusHit(winningLotto);
+            Rank rank = lotto.judgeMatchingCountAndBonusHit(winningLotto, gameRule);
             rankResult.put(rank, rankResult.getOrDefault(rank, 0) + 1);
         });
 
