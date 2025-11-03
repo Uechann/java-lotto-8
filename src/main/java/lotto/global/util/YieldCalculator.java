@@ -11,6 +11,6 @@ public class YieldCalculator {
                 .divide(purchase, 10, RoundingMode.HALF_UP)
                 .multiply(BigDecimal.valueOf(100));
 
-        return rate.setScale(2, RoundingMode.HALF_UP).doubleValue();
+        return rate.setScale(1, RoundingMode.HALF_UP).doubleValue();
     }
 }

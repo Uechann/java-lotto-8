@@ -20,6 +20,6 @@ public class YieldCalculatorTest {
         double yield = YieldCalculator.calculate(purchasePrice, winningPrice);
 
         // Then
-        assertThat(yield).isEqualTo(55.56);
+        assertThat(yield).isEqualTo(55.6);
     }
 }
