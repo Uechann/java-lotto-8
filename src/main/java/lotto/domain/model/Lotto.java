@@ -20,8 +20,6 @@ public class Lotto {
 
     // 당첨 로또를 통해서 매칭 카운트와 보너스 매치를 계산하고 Rank를 저장후 반환 메서드
     public Rank judgeMatchingCountAndBonusHit(WinningLotto winningLotto, GameRule gameRule) {
-//        int matchCount = getMatchCount(winningLotto.getLotto());
-//        boolean bonusMatch = getBonusMatch(winningLotto.getBonusNumber());
         return gameRule.judge(winningLotto, this);
     }
 

@@ -5,8 +5,8 @@ import lotto.global.constant.ErrorMessage;
 import java.util.List;
 
 public class WinningLotto {
-    private Lotto lotto;
-    private BonusNumber bonusNumber;
+    private final Lotto lotto;
+    private final BonusNumber bonusNumber;
 
     public WinningLotto(Lotto lotto, BonusNumber bonusNumber) {
         validate(lotto, bonusNumber);
